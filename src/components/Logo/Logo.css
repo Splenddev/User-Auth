@@ -1,0 +1,41 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.scene {
+  height: 70px;
+  width: 70px;
+  perspective: 1000px;
+  background: radial-gradient(circle at center, var(--second), var(--primary));
+  border-radius: 50%;
+  transform: rotateY(-25deg) rotateX(25deg);
+}
+.circle {
+  width: 92%;
+  height: 92%;
+  background: linear-gradient(to bottom right, var(--primary), var(--second));
+  display: flex;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 24px;
+  box-shadow: 0 0 10px #efefef;
+  position: relative;
+}
+.circle .check {
+  display: flex;
+  border: 2px solid #5372f5;
+  background: #5372f5;
+  align-items: center;
+  justify-self: center;
+  position: absolute;
+  border-radius: 50%;
+  font-size: 16px;
+  right: 14px;
+  bottom: 10px;
+}
+.company-name {
+  font-size: 20px;
+}

@@ -1,0 +1,67 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  justify-content: space-between;
+  padding: 10px 40px;
+}
+
+.navbar button {
+  border-radius: 20px;
+  border: none;
+  font-size: 14px;
+  color: #fff;
+  font-weight: 600;
+  background: var(--second);
+}
+.navbar button a {
+  padding: 10px 20px;
+}
+.navbar .login-link {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.navbar button:hover,
+.navbar button:active {
+  opacity: 0.8;
+  gap: 10px;
+}
+.navbar .navbar-user-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.navbar .navbar-user-menu p {
+  color: #fff;
+  text-transform: uppercase;
+}
+.navbar .navbar-user-menu ul {
+  list-style: none;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  right: -10px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+  width: 200px;
+  top: 100%;
+  margin-top: 10px;
+  padding: 8px;
+  box-shadow: 0 0 5px #aaaaaa;
+}
+
+.navbar .navbar-user-menu ul li {
+  padding: 10px 15px;
+  cursor: pointer;
+}
+.navbar .navbar-user-menu ul li:hover {
+  background: #eee;
+}

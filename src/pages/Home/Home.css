@@ -1,0 +1,6 @@
+.home {
+  background: linear-gradient(to top, #eb793d, #ffb347, #f3d182);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

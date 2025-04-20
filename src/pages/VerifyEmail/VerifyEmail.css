@@ -1,0 +1,60 @@
+.verify {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.verify .verify-top {
+  position: absolute;
+  top: 30px;
+  left: 7%;
+}
+.verify .verify-form {
+  box-shadow: 0 0 10px #d3d3d3;
+  background: #fff;
+  border-radius: 12px;
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  align-items: center;
+}
+.verify-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+.verify-form form h1,
+.verify-form form p {
+  text-align: center;
+}
+.verify-form form p {
+  margin: 10px 0;
+}
+.verify-form form .verify-input-fields {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.verify-form form .verify-input-fields input {
+  width: 50px;
+  height: 50px;
+  border-radius: 6px;
+  text-align: center;
+  background: #fff6ed;
+  /* color: #fff; */
+  font-size: 15px;
+  outline: var(--primary);
+  border: var(--primary);
+}
+.verify-form form button {
+  color: #fff;
+  border-radius: 30px;
+  margin-top: 20px;
+  outline: none;
+  border: none;
+  padding: 13px;
+  background: linear-gradient(to bottom, var(--second), var(--primary));
+}
