@@ -1,0 +1,80 @@
+.user-page {
+  background: linear-gradient(to top, #eb793d, #ffb347, #f3d182);
+  height: 100vh;
+  position: relative;
+}
+.user-page-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 20px;
+  background: #fff;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  align-items: center;
+}
+.user-page-top-logo {
+  cursor: pointer;
+}
+.user-page-top-details {
+  display: flex;
+  justify-content: space-between;
+}
+.user-page-top-texts p:first-child {
+  font-weight: 600;
+  font-size: 23px;
+  margin-bottom: 5px;
+}
+.user-page-top-texts p:last-child {
+  color: #aaa;
+}
+.user-menu {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background: #000;
+  color: #fff;
+}
+.user-page-contents {
+  background: #fff;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 600px;
+  border-radius: 12px;
+}
+.user-page-contents .icon {
+  font-size: 150px;
+  color: #e0e0e0;
+  place-self: center;
+  margin-bottom: 15px;
+}
+.user-page-contents hr {
+  height: 1px;
+  border: none;
+  background: #ccc;
+  margin: 10px 0;
+}
+.user-page-contents h3 {
+  margin-bottom: 20px;
+}
+.user-page-contents p {
+  font-size: max(1vw, 17px);
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  white-space: nowrap;
+}
+.user-page-contents p span {
+  text-align: right;
+  font-weight: 600;
+}
+.user-page-contents .check {
+  color: #5fd65f;
+}
+@media (max-width: 800px) {
+  .user-page-contents {
+    width: 90%;
+  }
+}

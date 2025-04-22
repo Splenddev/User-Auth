@@ -1,11 +1,9 @@
-/* eslint-disable react-refresh/only-export-components */
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import './VerifyEmail.css';
 import Logo from '../../components/Logo/Logo';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import Loader from '../../components/Loader/Loader';
-import transition from '../../utils/transition';
 import OtpInput from '../../components/OtpInput/OtpInput';
 const VerifyEmail = () => {
   const inputsRef = useRef([]);
@@ -70,4 +68,4 @@ const VerifyEmail = () => {
   );
 };
 
-export default transition(VerifyEmail);
+export default VerifyEmail;

@@ -1,5 +1,4 @@
 import { useState, useRef, useContext, useEffect } from 'react';
-import transition from '../../utils/transition';
 import { useNavigate } from 'react-router-dom';
 import Logo from '../../components/Logo/Logo.jsx';
 import './ResetPassword.css';
@@ -136,4 +135,4 @@ const ResetPassword = () => {
   );
 };
 
-export default transition(ResetPassword);
+export default ResetPassword;

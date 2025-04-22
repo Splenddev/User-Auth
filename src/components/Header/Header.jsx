@@ -48,7 +48,7 @@ const Header = () => {
                 ))}
               </ul>
             </div>
-            <Link to={'*'}>Proceed to App</Link>
+            <Link to="/user-page">Proceed to App</Link>
           </>
         ) : (
           <>

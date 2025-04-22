@@ -13,7 +13,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import axios from 'axios';
 import Loader from '../../components/Loader/Loader';
-import transition from '../../utils/transition';
 const Login = () => {
   const { login, signup, auth, setAuth, isLoginBtnLoading, checkUsername } =
     useContext(AuthContext);
@@ -218,4 +217,4 @@ const Login = () => {
   );
 };
 
-export default transition(Login);
+export default Login;
