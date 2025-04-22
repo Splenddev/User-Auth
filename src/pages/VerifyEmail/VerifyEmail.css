@@ -33,28 +33,3 @@
 .verify-form form p {
   margin: 10px 0;
 }
-.verify-form form .verify-input-fields {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-.verify-form form .verify-input-fields input {
-  width: 50px;
-  height: 50px;
-  border-radius: 6px;
-  text-align: center;
-  background: #fff6ed;
-  /* color: #fff; */
-  font-size: 15px;
-  outline: var(--primary);
-  border: var(--primary);
-}
-.verify-form form button {
-  color: #fff;
-  border-radius: 30px;
-  margin-top: 20px;
-  outline: none;
-  border: none;
-  padding: 13px;
-  background: linear-gradient(to bottom, var(--second), var(--primary));
-}

@@ -1,0 +1,53 @@
+.otp-form .otp-input-fields {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.otp-form .otp-input-fields input {
+  width: 50px;
+  height: 50px;
+  border-radius: 6px;
+  text-align: center;
+  background: #fff6ed;
+  /* color: #fff; */
+  font-size: 15px;
+  outline: var(--primary);
+  border: var(--primary);
+}
+.send-otp-options {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.send-otp-options span {
+  padding: 0 20px;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.verify-send-otp-options .otp-expire-time {
+  color: #555;
+}
+.otp-form button {
+  color: #fff;
+  display: flex;
+  border-radius: 30px;
+  margin-top: 20px;
+  outline: none;
+  border: none;
+  padding: 13px;
+  background: linear-gradient(to bottom, var(--second), var(--primary));
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}

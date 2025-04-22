@@ -1,19 +1,18 @@
 import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
+import { ToastContainer } from 'react-toastify';
 const App = () => {
   const location = useLocation();
   return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={location.pathname}
-        initial={{ x: -200, opacity: 0 }}
-        exit={{ x: 100, opacity: 0 }}
-        transition={{ duration: 0.5, ease: 'easeInOut' }}
-        animate={{ x: 0, opacity: 1 }}>
-        <Outlet />
-      </motion.div>
-    </AnimatePresence>
+    <>
+      <ToastContainer />
+      <AnimatePresence mode="wait">
+        <div key={location.pathname}>
+          <Outlet />
+        </div>
+      </AnimatePresence>
+    </>
   );
 };
 

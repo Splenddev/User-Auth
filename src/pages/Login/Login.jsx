@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import './Login.css';
 import Logo from '../../components/Logo/Logo';
 import {
@@ -9,13 +9,15 @@ import {
   FaLock,
   FaUser,
 } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import axios from 'axios';
-import { motion } from 'framer-motion';
-
+import Loader from '../../components/Loader/Loader';
+import transition from '../../utils/transition';
 const Login = () => {
-  const { login, signup, auth, setAuth, isLoading } = useContext(AuthContext);
+  const { login, signup, auth, setAuth, isLoginBtnLoading, checkUsername } =
+    useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
   const [isVisible, setIsVisible] = useState({
     password: false,
     confirmPassword: false,
@@ -44,12 +46,13 @@ const Login = () => {
         navigate('/');
       }
     } else {
-      const response = login(data.identifier, data.password);
-      if (response === true) {
-        navigate('/');
-      }
+      login(data.identifier, data.password, navigate);
     }
   };
+  useEffect(() => {
+    if (data.username === '') return;
+    checkUsername(data.username, setLoading);
+  }, [data.username]);
   return (
     <div className="login">
       <div
@@ -75,6 +78,7 @@ const Login = () => {
                   name="name"
                   placeholder="full name"
                   onChange={onChangeHandler}
+                  required
                 />
               </div>
               <div className="input-fields username">
@@ -87,6 +91,7 @@ const Login = () => {
                   placeholder="username"
                   onChange={onChangeHandler}
                 />
+                {loading && <Loader bdColor={'#eb793d'} />}
               </div>
             </>
           )}
@@ -97,7 +102,6 @@ const Login = () => {
                 value={data.email}
                 name="email"
                 type="email"
-                autoComplete="off"
                 required
                 placeholder="email"
                 onChange={onChangeHandler}
@@ -124,7 +128,6 @@ const Login = () => {
               name="password"
               required
               placeholder="password"
-              autoComplete="new-password"
               onChange={onChangeHandler}
             />
             <div
@@ -144,11 +147,10 @@ const Login = () => {
               <FaLock className="icon" />
               <input
                 value={data.confirmPassword}
-                type={isVisible.password ? 'text' : 'password'}
+                type={isVisible.confirmPassword ? 'text' : 'password'}
                 name="confirmPassword"
                 required
                 placeholder="confirm password"
-                autoComplete="new-password"
                 onChange={onChangeHandler}
               />
               <div
@@ -167,13 +169,21 @@ const Login = () => {
               </div>
             </div>
           )}
-          <p
+          <Link
             onClick={() => navigate('/reset/password')}
-            style={{ color: '#5372f5', cursor: 'pointer' }}>
+            style={{ color: '#5372f5' }}>
             Forgot password? Reset here.
-          </p>
-          <button className="signup-login-btn">
-            {isLoading ? 'Connecting...' : auth}
+          </Link>
+          <button
+            className={`signup-login-btn ${isLoginBtnLoading && 'loading'}`}
+            disabled={isLoginBtnLoading || loading}>
+            {isLoginBtnLoading ? (
+              <Loader />
+            ) : auth === 'Login' ? (
+              'Login'
+            ) : (
+              'Create account'
+            )}
           </button>
           {auth === 'Sign Up' ? (
             <p>
@@ -208,4 +218,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default transition(Login);

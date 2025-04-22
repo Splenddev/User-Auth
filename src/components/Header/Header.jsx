@@ -2,32 +2,42 @@ import React, { useContext } from 'react';
 import './Header.css';
 import { AuthContext } from '../../context/AuthContext';
 import Logo from '../Logo/Logo';
+import Loader from '../Loader/Loader';
+import { Link } from 'react-router-dom';
 // import { useNavigate } from 'react-router-dom';
 const Header = () => {
-  const { userData, isLoading } = useContext(AuthContext);
+  const { userData, isLoading, setAuth } = useContext(AuthContext);
   const welcomeTexts = [
-    'Use the top-left menu to access your dashboard and profile.',
-    'If you have not verified your email address, please do in top-left menu.',
-    'Click proceed to App to check out our app features.',
+    'Use the top-left menu to access your dashboard and logout.',
+    'Click Proceed to App to check out our app features.',
   ];
   // const navigate = useNavigate();
   return (
     <div className="header">
-      <div class="logo-container">
+      <div className="logo-container">
         <Logo no_text={true} />
       </div>
       {isLoading ? (
-        <p>Loading...</p>
+        <Loader />
       ) : userData ? (
         userData.verifiedAccount ? (
           <>
             <h2>
-              Hello, <span className="capitalize">{userData.name}</span>!
+              Hello, <span className="capitalize">{userData.name}!</span>
             </h2>
             <div class="header-messages">
               <p className="welcome-text">
                 Welcome to User Auth. We are glad to have you here. Your account
-                has been created successfully, and you are all set to explore.
+                has been created and verified successfully.
+              </p>
+              <hr />
+              <p>
+                Your email is:{' '}
+                <span className="highlight">{userData.email}</span>
+              </p>
+              <p>
+                Your username is:{' '}
+                <span className="id">{userData.username}</span>
               </p>
               <hr />
               {welcomeTexts.map((text, index) => (
@@ -38,7 +48,7 @@ const Header = () => {
                 </ul>
               ))}
             </div>
-            <a href="#">Proceed to App</a>
+            <Link to={'*'}>Proceed to App</Link>
           </>
         ) : (
           <>
@@ -53,12 +63,12 @@ const Header = () => {
         )
       ) : (
         <>
-          <h2>Hey 🖐!</h2>{' '}
+          <h2>Hey there!</h2>{' '}
           <div class="header-messages">
             <p className="welcome-text">
               <span>Welcome to User Auth.</span>
               This is a secure platform where you can manage profiles, access
-              protected resources and explore personalized resources.
+              and explore protected, personalized resources.
             </p>
             <hr />
             <p>Get started by logging into your account</p>
@@ -79,7 +89,11 @@ const Header = () => {
               </li>
             </ul>
           </div>
-          <a href="/login">Sign Up</a>
+          <Link
+            to="/login"
+            onClick={() => setAuth('Sign Up')}>
+            Sign Up
+          </Link>
         </>
       )}
     </div>

@@ -11,23 +11,23 @@ import Login from './pages/Login/Login.jsx';
 import { AuthContextProvider } from './context/AuthContext.jsx';
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/*',
     element: <App />,
     children: [
       {
-        path: '/',
+        index: true,
         element: <Home />,
       },
       {
-        path: '/login',
+        path: 'login',
         element: <Login />,
       },
       {
-        path: '/verify/email',
+        path: 'verify/email',
         element: <VerifyEmail />,
       },
       {
-        path: '/reset/password',
+        path: 'reset/password',
         element: <ResetPassword />,
       },
     ],

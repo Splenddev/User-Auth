@@ -13,13 +13,9 @@
   color: #fff;
   font-weight: 600;
   background: var(--second);
-}
-.navbar button a {
   padding: 10px 20px;
-}
-.navbar .login-link {
   display: flex;
-  gap: 5px;
+  gap: 10px;
   align-items: center;
 }
 .navbar button:hover,

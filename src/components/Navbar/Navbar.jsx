@@ -3,8 +3,10 @@ import { FaAngleRight } from 'react-icons/fa';
 import './Navbar.css';
 import Logo from '../Logo/Logo';
 import { AuthContext } from '../../context/AuthContext';
+import { Link } from 'react-router-dom';
+import Loader from '../Loader/Loader';
 const Navbar = () => {
-  const { userData, logout, sendOtp } = useContext(AuthContext);
+  const { userData, logout, sendOtp, isLoading } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const fullName = userData.name;
   const defaultName = 'John Doe';
@@ -21,7 +23,12 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <Logo />
-      {userData ? (
+      {isLoading ? (
+        <Loader
+          bdColor={'#000'}
+          duration={'0.5s'}
+        />
+      ) : userData ? (
         <div
           className="navbar-user-menu"
           onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -36,13 +43,11 @@ const Navbar = () => {
           )}
         </div>
       ) : (
-        <button>
-          <a
-            className="login-link"
-            href="/login">
+        <Link to="/login">
+          <button>
             Login <FaAngleRight />
-          </a>
-        </button>
+          </button>
+        </Link>
       )}
     </div>
   );

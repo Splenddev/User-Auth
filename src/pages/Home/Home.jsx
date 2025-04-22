@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import Header from '../../components/Header/Header';
 import './Home.css';
+import transition from '../../utils/transition';
 const Home = () => {
   return (
     <div className="home">
@@ -11,4 +12,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default transition(Home, 'home');
