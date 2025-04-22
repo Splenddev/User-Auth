@@ -58,7 +58,7 @@
   color: var(--primary);
   font-weight: bold;
   background: #fff;
-  padding: 10px 0;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;

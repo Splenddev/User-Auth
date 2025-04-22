@@ -40,13 +40,13 @@ const Header = () => {
                 <span className="id">{userData.username}</span>
               </p>
               <hr />
-              {welcomeTexts.map((text, index) => (
-                <ul key={index}>
-                  <li>
+              <ul>
+                {welcomeTexts.map((text, index) => (
+                  <li key={index}>
                     👉<span>{text}</span>
                   </li>
-                </ul>
-              ))}
+                ))}
+              </ul>
             </div>
             <Link to={'*'}>Proceed to App</Link>
           </>
