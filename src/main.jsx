@@ -3,12 +3,28 @@ import './index.css';
 import App from './App.jsx';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Home from './pages/Home/Home';
-import React from 'react';
-import VerifyEmail from './pages/VerifyEmail/VerifyEmail.jsx';
-import ResetPassword from './pages/ResetPassword/ResetPassword.jsx';
-import Login from './pages/Login/Login.jsx';
+import React, { lazy, Suspense } from 'react';
+
+const Home = lazy(() => import('./pages/Home/Home'));
+const VerifyEmail = lazy(() => import('./pages/VerifyEmail/VerifyEmail'));
+const ResetPassword = lazy(() => import('./pages/ResetPassword/ResetPassword'));
+const Login = lazy(() => import('./pages/Login/Login'));
+
 import { AuthContextProvider } from './context/AuthContext.jsx';
+import Loader from './components/Loader/Loader.jsx';
+
+// Wrap lazy-loaded components with Suspense
+const withSuspense = (Component) => (
+  <Suspense
+    fallback={
+      <div className="flex">
+        <Loader />
+      </div>
+    }>
+    <Component />
+  </Suspense>
+);
+
 const router = createBrowserRouter([
   {
     path: '/*',
@@ -16,24 +32,23 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />,
+        element: withSuspense(Home),
       },
       {
         path: 'login',
-        element: <Login />,
+        element: withSuspense(Login),
       },
       {
         path: 'verify/email',
-        element: <VerifyEmail />,
+        element: withSuspense(VerifyEmail),
       },
       {
         path: 'reset/password',
-        element: <ResetPassword />,
+        element: withSuspense(ResetPassword),
       },
     ],
   },
 ]);
-// import App from '../AppTest/AppTest.jsx';
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>

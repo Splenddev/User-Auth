@@ -52,3 +52,8 @@ a {
 .id {
   font-weight: 600;
 }
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
