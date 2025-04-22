@@ -6,7 +6,9 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 export const AuthContext = createContext();
 export const AuthContextProvider = (prop) => {
-  const url = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+  const url =
+    import.meta.env.VITE_API_BASE_URL ||
+    'https://auth-server-gcda.onrender.com';
   const [auth, setAuth] = useState('Login');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
